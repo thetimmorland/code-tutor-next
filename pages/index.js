@@ -4,12 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 import ShareDb from "sharedb";
 import ShareDbMongo from "sharedb-mongo";
 
-const db = new ShareDbMongo(process.env.DATABASE, {
-  mongoOptions: { useUnifiedTopology: true },
-});
-
-const share = new ShareDb({ db });
-
 export default function Home({ id }) {
   useEffect(() => {
     Router.push(`/${id}`);
@@ -24,6 +18,12 @@ export async function getServerSideProps(context) {
 }
 
 async function createDoc() {
+  const db = new ShareDbMongo(process.env.DATABASE, {
+    mongoOptions: { useUnifiedTopology: true },
+  });
+
+  const share = new ShareDb({ db });
+
   const id = uuidv4();
   const connection = share.connect();
   const doc = connection.get("collection", id);
