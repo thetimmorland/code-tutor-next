@@ -10,9 +10,15 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.8",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sharedb": "^3.2.0",
+    "sharedb-mongo": "^2.0.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "eslint": "8.25.0",
